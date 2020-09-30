@@ -20,9 +20,13 @@ import tensorflow as tf
 
 #Load data
 def load_data(data_dir):
-    
+    # looping throw the data
     directories = [d for d in os.listdir(data_dir) 
-                   if os.path.isdir(os.path.join(data_dir, d))]
+    
+                   
+    if os.path.isdir(os.path.join(data_dir, d))]
+    
+    #intializing empty list for the label and images
     labels = []
     images = []
     for d in directories:
@@ -58,6 +62,8 @@ def display_images_and_labels(images, labels):
         _ = plt.imshow(image)
     plt.show()
 
+    
+    #calling the display function with image and label parameters
 display_images_and_labels(images, labels)
 
 def display_label_images(images, label):
@@ -66,6 +72,8 @@ def display_label_images(images, label):
     plt.figure(figsize=(15, 5))
     i = 1
 
+ *
+ *Return: Always 0 (success)
     start = labels.index(label)
     end = start + labels.count(label)
     for image in images[start:end][:limit]:
